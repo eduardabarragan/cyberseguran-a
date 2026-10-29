@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <div>
+        <p class="eyebrow">Área do professor</p>
+        <h1>Olá, {{ user['name'] }}</h1>
+        <p>Disciplinas sob sua responsabilidade.</p>
+    </div>
+</div>
+<div class="cards">
+{% for discipline in disciplines %}
+    <article class="card">
+        <h2>{{ discipline['name'] }}</h2>
+        <a class="button" href="{{ url_for('disciplina', discipline_id=discipline['id']) }}">Abrir disciplina</a>
+    </article>
+{% else %}
+    <p>Nenhuma disciplina encontrada.</p>
+{% endfor %}
+</div>
+{% endblock %}
